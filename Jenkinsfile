@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Install env') {
             steps {
-                sh 'pip install -r .\\requirements.txt'
+                bat 'pip install -r .\\requirements.txt'
             }
         }
         stage('Healthcheck Nodes') {
             steps {
-                sh 'dir'
-                sh 'python3 .\\healthcheck.py'
+                bat 'dir'
+                bat 'python3 .\\healthcheck.py'
             }
         }
     }
