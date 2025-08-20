@@ -4,7 +4,7 @@ pipeline {
         stage('Healthcheck Nodes') {
             steps {
                 sh 'dir'
-                sh 'python3 healthcheck.py'
+                sh 'python3 .\healthcheck.py'
             }
         }
     }
