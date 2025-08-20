@@ -21,7 +21,7 @@ def main():
     conn = psycopg2.connect(**DB_CONFIG)
     cursor = conn.cursor()
     # Ambil semua node
-    cursor.execute("SELECT id, name, last_healthcheck FROM public.node;")
+    cursor.execute("SELECT id, name, last_healthcheck FROM public.nodes;")
     nodes = cursor.fetchall()
     now = datetime.now(timezone.utc)
     for node_id, name, last_healthcheck in nodes:
