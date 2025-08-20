@@ -36,6 +36,7 @@ def main():
         # Cek selisih waktu
         if now - last_healthcheck > timedelta(minutes=3):
             send_slack_alert(name, last_healthcheck)
+        send_slack_alert(name, last_healthcheck)  # untuk testing uhuy      
     cursor.close()
     conn.close()
 if __name__ == "__main__":
