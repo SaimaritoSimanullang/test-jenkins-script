@@ -7,8 +7,8 @@ DB_CONFIG = {
     "host": os.environ.get("HOST", "localhost"),
     "port": os.environ.get("PORT", "5433"),
     "dbname": os.environ.get("DBMAIN", "postgres"),
-    "user": s.environ.get("USER", "postgres"),
-    "password": s.environ.get("PASSWORD", "1234"),
+    "user": os.environ.get("USER", "postgres"),
+    "password": os.environ.get("PASSWORD", "1234"),
 }
 # Slack Webhook URL
 SLACK_WEBHOOK = "https://hooks.slack.com/services/XXXX/XXXX/XXXX"
