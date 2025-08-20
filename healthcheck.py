@@ -19,7 +19,9 @@ def send_slack_alert(node_name, last_healthcheck):
     form_data = {
         'payload': message,
     }
-    requests.post(SLACK_WEBHOOK, data=form_data)
+    response = requests.post(SLACK_WEBHOOK, data=form_data)
+    print(response.status_code)
+    
 def main():
     print("host", DB_CONFIG["host"])
     print("port", DB_CONFIG["port"])
