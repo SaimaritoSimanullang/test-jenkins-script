@@ -1,13 +1,14 @@
 import psycopg2
 import requests
 from datetime import datetime, timezone, timedelta
+import os
 # Konfigurasi DB
 DB_CONFIG = {
-    "host": "192.168.1.2",
-    "port": 5433,
-    "dbname": "main",
-    "user": "capps_satellite",
-    "password": ""
+    "host": os.environ.get("HOST", "localhost"),
+    "port": os.environ.get("PORT", "5433"),
+    "dbname": os.environ.get("DBMAIN", "postgres"),
+    "user": s.environ.get("USER", "postgres"),
+    "password": s.environ.get("PASSWORD", "1234"),
 }
 # Slack Webhook URL
 SLACK_WEBHOOK = "https://hooks.slack.com/services/XXXX/XXXX/XXXX"
