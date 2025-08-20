@@ -6,7 +6,7 @@ import os
 DB_CONFIG = {
     "host": os.environ.get("HOST", "localhost"),
     "port": os.environ.get("PORT", "5433"),
-    "dbname": os.environ.get("DBMAIN", "postgres"),
+    "dbname": os.environ.get("DBNAME", "postgres"),
     "user": os.environ.get("USER", "postgres"),
     "password": os.environ.get("PASSWORD", "1234"),
 }
@@ -18,6 +18,11 @@ def send_slack_alert(node_name, last_healthcheck):
     }
     requests.post(SLACK_WEBHOOK, json=message)
 def main():
+    print("host", DB_CONFIG["host"])
+    print("port", DB_CONFIG["port"])
+    print("dbname", DB_CONFIG["dbname"])
+    print("user", DB_CONFIG["user"])
+
     conn = psycopg2.connect(**DB_CONFIG)
     cursor = conn.cursor()
     # Ambil semua node
