@@ -2,6 +2,7 @@ import psycopg2
 import requests
 from datetime import datetime, timezone, timedelta
 import os
+import json
 # Konfigurasi DB
 DB_CONFIG = {
     "host": os.environ.get("HOST", "localhost"),
@@ -17,7 +18,7 @@ def send_slack_alert(node_name, last_healthcheck):
         "text": f":warning: Node *{node_name}* terakhir healthcheck pada {last_healthcheck}, sudah lebih dari 3 menit!"
     }
     form_data = {
-        'payload': message,
+        'payload': json.dumps(message),
     }
     response = requests.post(SLACK_WEBHOOK, data=form_data)
     print(response.status_code)
