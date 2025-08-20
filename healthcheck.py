@@ -16,7 +16,10 @@ def send_slack_alert(node_name, last_healthcheck):
     message = {
         "text": f":warning: Node *{node_name}* terakhir healthcheck pada {last_healthcheck}, sudah lebih dari 3 menit!"
     }
-    requests.post(SLACK_WEBHOOK, json=message)
+    form_data = {
+        'payload': message,
+    }
+    requests.post(SLACK_WEBHOOK, data=form_data)
 def main():
     print("host", DB_CONFIG["host"])
     print("port", DB_CONFIG["port"])
