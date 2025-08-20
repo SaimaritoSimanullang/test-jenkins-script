@@ -30,6 +30,7 @@ def main():
     nodes = cursor.fetchall()
     now = datetime.now(timezone.utc)
     for node_id, name, last_healthcheck in nodes:
+        print("node_id", node_id, "name", name, "last_healthcheck", last_healthcheck)
         if last_healthcheck is None:
             send_slack_alert(name, "Belum pernah")
             continue
