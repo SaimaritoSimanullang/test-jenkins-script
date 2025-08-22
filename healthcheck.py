@@ -12,7 +12,8 @@ DB_CONFIG = {
     "password": os.environ.get("PASSWORD", "1234"),
 }
 # Slack Webhook URL
-SLACK_WEBHOOK = "https://hooks.slack.com/services/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'"
+SLACK_WEBHOOK = os.environ.get("WEBHOOKSLACK", "")
+
 def send_slack_alert(node_name, last_healthcheck):
     message = {
         "text": f":warning: Node *{node_name}* terakhir healthcheck pada {last_healthcheck}, sudah lebih dari 3 menit!"
